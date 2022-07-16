@@ -31,10 +31,14 @@ class calcplugintest(unittest.TestCase):
         mul = calc.Operator()
         mul.symbol = '*'
         mul.expr = lambda x, y: x * y
+        i = len(calc.operators)
         calc.add_operator(mul)
-        self.assertEqual(mul, calc.operators[0])
+        self.assertEqual(mul, calc.operators[i])
         self.assertEqual(6, mul.expr(2, 3))
-        self.assertEqual(6, calc.operators[0].expr(2, 3))
-        
-        self.assertEqual(0, calc.symbols.index('*'))
+        self.assertEqual(6, calc.operators[i].expr(2, 3))
+
+        self.assertEqual(i, calc.symbols.index('*'))
         self.assertEqual(6, calc.calculate("3 * 2"))
+
+    # def test_addOp(self):
+    #     calc.add_op_new('*', lambda x, y: x*y)

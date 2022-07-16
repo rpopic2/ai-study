@@ -1,17 +1,14 @@
+from re import sub
+
+
 def calculate(input: str):
     augend, operator, addend = parse(input)
 
-    match operator:
-        case '+':
-            return augend + addend
-        case '-':
-            return augend - addend
-        case _:
-            i = symbols.index(operator)
-            if i != -1:
-                return operators[i].expr(augend, addend)
-            else:
-                print(f"Unknown operator : {operator}")
+    i = symbols.index(operator)
+    if i != -1:
+        return operators[i].expr(augend, addend)
+    else:
+        print(f"Unknown operator : {operator}")
 
 
 def parse(input: str):
@@ -54,3 +51,15 @@ symbols = []
 def add_operator(op: Operator):
     operators.append(op)
     symbols.append(op.symbol)
+
+
+add = Operator()
+add.symbol = '+'
+add.expr = lambda x, y: x+y
+add_operator(add)
+
+subtract = Operator()
+subtract.symbol = '-'
+subtract.expr = lambda x, y: x-y
+
+add_operator(subtract)

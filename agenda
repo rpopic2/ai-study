@@ -8,3 +8,5 @@ v   "5 - 3" = 2
     
 
     ** python3 calc.py 3 * 10 does not work because * is reserved.
+    
+addop resembles dictionary pattern?
