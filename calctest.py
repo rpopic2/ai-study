@@ -12,4 +12,6 @@ class calctest(unittest.TestCase):
     def testparseexpr(self):
         self.assertEqual('+', calc.parse_expr("3+2"))
         self.assertEqual('-', calc.parse_expr("3-2"))
+        self.assertEqual('-', calc.parse_expr("3 - 2"))
         self.assertEqual('-', calc.parse_expr("3-2="))
+        

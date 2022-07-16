@@ -3,14 +3,18 @@
 #     addend = int(input[2])
 #     return augend + addend
 
+from curses.ascii import isspace
+
+
 def calculate(input: str):
-    augend, expr, addend = input.partition('+')
+    seperator = parse_expr(input)
+    augend, expr, addend = input.partition(seperator)
     return int(augend) + int(addend)
 
 
 def parse_expr(input: str):
     for x in input:
-        if not x.isnumeric():
+        if not x.isnumeric() and not x.isspace():
             return x
 
 
