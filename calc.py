@@ -7,12 +7,12 @@ from curses.ascii import isspace
 
 
 def calculate(input: str):
-    seperator = parse_expr(input)
+    seperator = get_expr(input)
     augend, expr, addend = input.partition(seperator)
     return int(augend) + int(addend)
 
 
-def parse_expr(input: str):
+def get_expr(input: str):
     for x in input:
         if not x.isnumeric() and not x.isspace():
             return x
