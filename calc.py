@@ -1,27 +1,19 @@
-# def calculate(input):
-#     augend = int(input[0])
-#     addend = int(input[2])
-#     return augend + addend
-
-from curses.ascii import isspace
-
-from click import argument
-
-
 def calculate(input: str):
-    operator = get_operator(input)
-    front, middle, back = input.partition(operator)
-
-    augend = int(front)
-    addend = int(back)
+    augend, operator, addend = parse(input)
 
     match operator:
         case '+':
             return augend + addend
         case '-':
             return augend - addend
+        case '*':
+            return augend * addend
 
-    return int(augend) + int(addend)
+
+def parse(input: str):
+    operator = get_operator(input)
+    front, middle, back = input.partition(operator)
+    return int(front), operator, int(back)
 
 
 def get_operator(input: str):

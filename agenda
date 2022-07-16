@@ -6,3 +6,6 @@ v   "3+2" = 5
 v   "5 - 3" = 2
 
     operator as a plugin
+    
+
+    ** python3 calc.py 3 * 10 does not work because * is reserved.
