@@ -7,13 +7,13 @@ from curses.ascii import isspace
 
 
 def calculate(input: str):
-    seperator = get_expr(input)
-    front, middle, back = input.partition(seperator)
+    operator = get_operator(input)
+    front, middle, back = input.partition(operator)
 
     augend = int(front)
     addend = int(back)
 
-    match seperator:
+    match operator:
         case '+':
             return augend + addend
         case '-':
@@ -22,7 +22,7 @@ def calculate(input: str):
     return int(augend) + int(addend)
 
 
-def get_expr(input: str):
+def get_operator(input: str):
     for x in input:
         if not x.isnumeric() and not x.isspace():
             return x
