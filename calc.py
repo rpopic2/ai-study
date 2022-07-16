@@ -5,6 +5,8 @@
 
 from curses.ascii import isspace
 
+from click import argument
+
 
 def calculate(input: str):
     operator = get_operator(input)
@@ -30,5 +32,11 @@ def get_operator(input: str):
 
 if __name__ == "__main__":
     import sys
-    x = calculate(sys.argv[1])
+
+    argu = ""
+    sys.argv.pop(0)
+    for v in sys.argv:
+        argu += v
+
+    x = calculate(argu)
     print(x)
