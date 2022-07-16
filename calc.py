@@ -6,8 +6,8 @@ def calculate(input: str):
             return augend + addend
         case '-':
             return augend - addend
-        case '*':
-            return augend * addend
+        case _:
+            print("Unknown operator : " + operator)
 
 
 def parse(input: str):
