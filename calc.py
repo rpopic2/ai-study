@@ -8,7 +8,17 @@ from curses.ascii import isspace
 
 def calculate(input: str):
     seperator = get_expr(input)
-    augend, expr, addend = input.partition(seperator)
+    front, middle, back = input.partition(seperator)
+
+    augend = int(front)
+    addend = int(back)
+
+    match seperator:
+        case '+':
+            return augend + addend
+        case '-':
+            return augend - addend
+
     return int(augend) + int(addend)
 
 

@@ -1,5 +1,6 @@
 basic addition
    "3 + 2" = 5 <- does not work on cli! <- is cli neccesary?
 v   "3+2" = 5
-    "3+2=" = 5
     "3 + 2 + 2"
+
+    "5 - 3" = 2
