@@ -1,22 +1,10 @@
 basic addition
-v  "3 + 2" = 5 <- does not work on cli! <- is cli neccesary?
-v   "3+2" = 5
-v   "5 - 3" = 2
-    "3 + 2 + 2"
-
-v   operator as a plugin
-    
-
-v   ** python3 calc.py 3 * 10 does not work because * is reserved.
-    
-addop resembles dictionary pattern?
-
-v   crashes when unknow op is called?
-v   type exit to exit
-crashes when an alphabetical value is provided.
-eol or keyboardinterrupt to exit
 
 ls available operators
 ? key
 
 decimals not supported!
+
+up arrows loads next
+
+returning None is good, but is not informative
