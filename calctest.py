@@ -14,6 +14,10 @@ class calctest(unittest.TestCase):
     def test_subtraction(self):
         calc.define_operator('-', lambda x,y: x-y)
         self.assertEqual(2, calc.calculate("5 - 3"))
+        
+    # def test_alpha_error(self):
+    #     calc.define_operator('+', lambda x,y: x+y)
+    #     self.assertEqual(None, calc.calculate("a+3"))
 
 
 class calcinternaltest(unittest.TestCase):
