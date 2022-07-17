@@ -15,3 +15,6 @@ v   crashes when unknow op is called?
 v   type exit to exit
 crashes when an alphabetical value is provided.
 eol or keyboardinterrupt to exit
+
+ls available operators
+? key

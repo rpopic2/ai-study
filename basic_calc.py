@@ -9,7 +9,6 @@ while 1:
         expr = input("> ")
     except (EOFError, KeyboardInterrupt):
         exit()
-    
     if expr == "exit":
         exit()
     result = calc.calculate(expr)
