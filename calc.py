@@ -1,6 +1,15 @@
+
+symbols = []
+exprs = []
+
+
+def define_operator(symbol: str, expr):
+    symbols.append(symbol)
+    exprs.append(expr)
+
+
 def calculate(input: str):
     augend, operator, addend = parse(input)
-
     i = symbols.index(operator)
     if i != -1:
         return exprs[i](augend, addend)
@@ -31,30 +40,10 @@ def calc_from_cli():
     x = calculate(argu)
     print(x)
 
+# define_operator('+', lambda x, y: x+y)
+# define_operator('-', lambda x, y: x-y)
+# define_operator('*', lambda x, y: x*y)
+# define_operator('/', lambda x, y: x/y)
 
 if __name__ == "__main__":
     calc_from_cli()
-
-
-class Operator:
-    symbol = ''
-    def expr(x: int, y: int): pass
-
-
-# operators = []
-symbols = []
-exprs = []
-
-
-def add_operator(op: Operator):
-    operators.append(op)
-    symbols.append(op.symbol)
-
-
-def add_op_new(symbol: str, expr):
-    symbols.append(symbol)
-    exprs.append(expr)
-
-
-add_op_new('+', lambda x, y: x+y)
-add_op_new('-', lambda x, y: x-y)
