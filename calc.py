@@ -1,12 +1,9 @@
-from re import sub
-
-
 def calculate(input: str):
     augend, operator, addend = parse(input)
 
     i = symbols.index(operator)
     if i != -1:
-        return operators[i].expr(augend, addend)
+        return exprs[i](augend, addend)
     else:
         print(f"Unknown operator : {operator}")
 
@@ -44,8 +41,9 @@ class Operator:
     def expr(x: int, y: int): pass
 
 
-operators = []
+# operators = []
 symbols = []
+exprs = []
 
 
 def add_operator(op: Operator):
@@ -53,13 +51,10 @@ def add_operator(op: Operator):
     symbols.append(op.symbol)
 
 
-add = Operator()
-add.symbol = '+'
-add.expr = lambda x, y: x+y
-add_operator(add)
+def add_op_new(symbol: str, expr):
+    symbols.append(symbol)
+    exprs.append(expr)
 
-subtract = Operator()
-subtract.symbol = '-'
-subtract.expr = lambda x, y: x-y
 
-add_operator(subtract)
+add_op_new('+', lambda x, y: x+y)
+add_op_new('-', lambda x, y: x-y)

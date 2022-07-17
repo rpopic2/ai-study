@@ -27,18 +27,6 @@ class calcinternaltest(unittest.TestCase):
 
 
 class calcplugintest(unittest.TestCase):
-    def test_addOperator(self):
-        mul = calc.Operator()
-        mul.symbol = '*'
-        mul.expr = lambda x, y: x * y
-        i = len(calc.operators)
-        calc.add_operator(mul)
-        self.assertEqual(mul, calc.operators[i])
-        self.assertEqual(6, mul.expr(2, 3))
-        self.assertEqual(6, calc.operators[i].expr(2, 3))
-
-        self.assertEqual(i, calc.symbols.index('*'))
-        self.assertEqual(6, calc.calculate("3 * 2"))
-
-    # def test_addOp(self):
-    #     calc.add_op_new('*', lambda x, y: x*y)
+    def test_addOp(self):
+        calc.add_op_new('#', lambda x, y: x*y)
+        self.assertEqual(6, calc.calculate("3 # 2"))
