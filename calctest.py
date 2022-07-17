@@ -26,8 +26,8 @@ class calctest(unittest.TestCase):
 
     def test_non_numeric_error(self):
         calc.define_operator('-', lambda x, y: x-y)
-        self.assertEqual(-2, calc.main("a-2"))
-        self.assertEqual(2, calc.main("2-a"))
+        self.assertEqual(None, calc.main("a-2"))
+        self.assertEqual(None, calc.main("2-a"))
 
     def test_new_calc(self):
         calc.define_operator('+', lambda x, y: x+y)
@@ -48,7 +48,7 @@ class calcinternaltest(unittest.TestCase):
 
     def test_parse_number(self):
         self.assertEqual(2, calc.parse_number("2"))
-        self.assertEqual(0, calc.parse_number("b"))
+        self.assertEqual(None, calc.parse_number("b"))
         self.assertEqual(2, calc.parse_number(" 2"))
 
 

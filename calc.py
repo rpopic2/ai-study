@@ -10,10 +10,10 @@ def define_operator(symbol: str, expr):
 
 
 def main(input: str):
-    x = parse(input)
-    if x is None:
+    parsed = parse(input)
+    if parsed is None:
         return
-    augend, operator, addend = parse(input)
+    augend, operator, addend = parsed
     return calculate(augend, operator, addend)
 
 
@@ -32,6 +32,10 @@ def parse(input: str):
     if operator is None:
         return
     front, middle, back = input.partition(operator)
+    augend = parse_number(front)
+    addend = parse_number(back)
+    if augend is None or addend is None:
+        return
     return parse_number(front), operator, parse_number(back)
 
 
@@ -45,5 +49,3 @@ def parse_number(input: str):
     stripped = input.strip()
     if stripped.isnumeric():
         return int(stripped)
-    else:
-        return 0
