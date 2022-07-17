@@ -18,6 +18,9 @@ class calctest(unittest.TestCase):
     def test_unknown_operator_error(self):
         self.assertEqual(None, calc.calculate("3}2"))
 
+    # def test_non_numeric_error(self):
+    #     calc.define_operator('-', lambda x,y: x-y)
+    #     self.assertEqual(None, calc.calculate("a-2"))
 
 class calcinternaltest(unittest.TestCase):
     def test_getoperator(self):

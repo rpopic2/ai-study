@@ -20,13 +20,20 @@ def calculate(input: str):
 def parse(input: str):
     operator = parse_operator(input)
     front, middle, back = input.partition(operator)
-    return int(front), operator, int(back)
+    return parse_number(front), operator, parse_number(back)
 
 
 def parse_operator(input: str):
     for x in input:
         if not x.isnumeric() and not x.isspace():
             return x
+
+
+def parse_number(x: str):
+    if not x.isnumeric():
+        return None
+    else:
+        return int(x)
 
 
 def calc_from_cli():
@@ -44,6 +51,7 @@ def calc_from_cli():
 # define_operator('-', lambda x, y: x-y)
 # define_operator('*', lambda x, y: x*y)
 # define_operator('/', lambda x, y: x/y)
+
 
 if __name__ == "__main__":
     calc_from_cli()
