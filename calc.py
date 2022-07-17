@@ -10,6 +10,9 @@ def define_operator(symbol: str, expr):
 
 
 def main(input: str):
+    x = parse(input)
+    if x is None:
+        return
     augend, operator, addend = parse(input)
     return calculate(augend, operator, addend)
 
@@ -26,13 +29,15 @@ def calculate(augend, operator, addend):
 # parsing
 def parse(input: str):
     operator = parse_operator(input)
+    if operator is None:
+        return
     front, middle, back = input.partition(operator)
     return parse_number(front), operator, parse_number(back)
 
 
 def parse_operator(input: str):
     for x in input:
-        if not x.isnumeric() and not x.isspace():
+        if x in symbols:
             return x
 
 

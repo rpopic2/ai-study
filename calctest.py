@@ -1,8 +1,14 @@
 import unittest
 import calc
 
-
+def define_basic_op():
+    calc.define_operator('+', lambda x, y: x+y)
+    calc.define_operator('-', lambda x, y: x-y)
+    calc.define_operator('*', lambda x, y: x*y)
+    calc.define_operator('/', lambda x, y: x/y)
 class calctest(unittest.TestCase):
+
+
     def test_addition(self):
         calc.define_operator('+', lambda x, y: x+y)
         self.assertEqual(5, calc.main("3+2"))
@@ -20,7 +26,7 @@ class calctest(unittest.TestCase):
 
     def test_non_numeric_error(self):
         calc.define_operator('-', lambda x, y: x-y)
-        self.assertEqual(None, calc.main("a-2"))
+        self.assertEqual(-2, calc.main("a-2"))
         self.assertEqual(2, calc.main("2-a"))
 
     def test_new_calc(self):
@@ -30,6 +36,7 @@ class calctest(unittest.TestCase):
 
 class calcinternaltest(unittest.TestCase):
     def test_getoperator(self):
+        define_basic_op()
         self.assertEqual('+', calc.parse_operator("3+2"))
         self.assertEqual('-', calc.parse_operator("3-2"))
         self.assertEqual('-', calc.parse_operator("3 - 2"))
