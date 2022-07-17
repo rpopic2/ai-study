@@ -34,6 +34,10 @@ class calcinternaltest(unittest.TestCase):
         self.assertTupleEqual((3, '*', 2), calc.parse("3*2"))
         self.assertTupleEqual((3, '*', 2), calc.parse("3* 2"))
 
+    def test_parse_number(self):
+        self.assertEqual(2, calc.parse_number("2"))
+        self.assertEqual(None, calc.parse_number("b"))
+
 
 class calcplugintest(unittest.TestCase):
     def test_addOp(self):

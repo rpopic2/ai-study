@@ -29,6 +29,13 @@ def parse_operator(input: str):
             return x
 
 
+def parse_number(input: str):
+    if input.isnumeric():
+        return int(input)
+    else:
+        return None
+
+
 def calc_from_cli():
     import sys
     if len(sys.argv) <= 1:
