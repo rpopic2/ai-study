@@ -1,4 +1,3 @@
-
 symbols = []
 exprs = []
 
@@ -20,7 +19,7 @@ def calculate(input: str):
 def parse(input: str):
     operator = parse_operator(input)
     front, middle, back = input.partition(operator)
-    return int(front), operator, int(back)
+    return parse_number(front), operator, parse_number(back)
 
 
 def parse_operator(input: str):
@@ -30,28 +29,8 @@ def parse_operator(input: str):
 
 
 def parse_number(input: str):
-    if input.isnumeric():
-        return int(input)
+    stripped = input.strip()
+    if stripped.isnumeric():
+        return int(stripped)
     else:
-        return None
-
-
-def calc_from_cli():
-    import sys
-    if len(sys.argv) <= 1:
-        return
-    argu = ""
-    sys.argv.pop(0)
-    for v in sys.argv:
-        argu += v
-    x = calculate(argu)
-    print(x)
-
-# define_operator('+', lambda x, y: x+y)
-# define_operator('-', lambda x, y: x-y)
-# define_operator('*', lambda x, y: x*y)
-# define_operator('/', lambda x, y: x/y)
-
-
-if __name__ == "__main__":
-    calc_from_cli()
+        return 0
