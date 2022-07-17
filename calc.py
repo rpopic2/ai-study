@@ -1,3 +1,5 @@
+
+# Operators
 symbols = []
 exprs = []
 
@@ -7,8 +9,13 @@ def define_operator(symbol: str, expr):
     exprs.append(expr)
 
 
-def calculate(input: str):
+def main(input: str):
     augend, operator, addend = parse(input)
+    return calculate(augend, operator, addend)
+
+
+# Calculation
+def calculate(augend, operator, addend):
     if operator in symbols:
         i = symbols.index(operator)
         return exprs[i](augend, addend)
@@ -16,6 +23,7 @@ def calculate(input: str):
         print(f"Unknown operator : {operator}")
 
 
+# parsing
 def parse(input: str):
     operator = parse_operator(input)
     front, middle, back = input.partition(operator)

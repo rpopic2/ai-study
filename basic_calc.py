@@ -11,5 +11,5 @@ while 1:
         exit()
     if expr == "exit":
         exit()
-    result = calc.calculate(expr)
+    result = calc.main(expr)
     print(result)
