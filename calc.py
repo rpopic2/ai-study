@@ -10,8 +10,8 @@ def define_operator(symbol: str, expr):
 
 def calculate(input: str):
     augend, operator, addend = parse(input)
-    i = symbols.index(operator)
-    if i != -1:
+    if operator in symbols:
+        i = symbols.index(operator)
         return exprs[i](augend, addend)
     else:
         print(f"Unknown operator : {operator}")
