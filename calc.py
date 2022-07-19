@@ -1,5 +1,8 @@
 
 # Operators
+from argparse import ArgumentError
+
+
 symbols = []
 exprs = []
 
@@ -22,15 +25,14 @@ def calculate(augend, operator, addend):
     if operator in symbols:
         i = symbols.index(operator)
         return exprs[i](augend, addend)
-    else:
-        print(f"Unknown operator : {operator}")
 
 
 # parsing
 def parse(input: str):
     operator = parse_operator(input)
     if operator is None:
-        return
+        raise ArgumentError(
+            None, f"Unknown operator. Type ? to show all avilable operators")
     front, middle, back = input.partition(operator)
     augend = parse_number(front)
     addend = parse_number(back)
@@ -49,3 +51,7 @@ def parse_number(input: str):
     stripped = input.strip()
     if stripped.isnumeric():
         return int(stripped)
+    elif '.' in stripped:
+        return float(stripped)
+    else:
+        raise ArgumentError(None, "Invalid argument. Expected numeric value.")
