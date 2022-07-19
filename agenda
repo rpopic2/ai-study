@@ -1,8 +1,1 @@
-v ls available operators
-v ? key
-
-v decimals not supported!
-
 too hard to implement? ->up arrows loads next
-
-v returning None is good, but is not informative
