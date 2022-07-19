@@ -1,3 +1,4 @@
+from ctypes import ArgumentError
 import unittest
 import calc
 
@@ -23,11 +24,11 @@ class calctest(unittest.TestCase):
         self.assertEqual(2, calc.main("5 - 3"))
 
     def test_unknown_operator_error(self):
-        self.assertEqual(None, calc.main("3}2"))
+        self.assertRaises(Exception, calc.main, "3}2")
 
     def test_non_numeric_error(self):
-        self.assertEqual(None, calc.main("a-2"))
-        self.assertEqual(None, calc.main("2-a"))
+        self.assertRaises(Exception, calc.main, "a-2")
+        self.assertRaises(Exception, calc.main, "2-a")
 
     def test_new_calc(self):
         self.assertEqual(5, calc.calculate(2, "+", 3))
@@ -47,7 +48,7 @@ class calcinternaltest(unittest.TestCase):
 
     def test_parse_number(self):
         self.assertEqual(2, calc.parse_number("2"))
-        self.assertEqual(None, calc.parse_number("b"))
+        self.assertRaises(Exception, calc.parse_number, "b")
         self.assertEqual(2, calc.parse_number(" 2"))
 
 
