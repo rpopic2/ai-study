@@ -21,9 +21,6 @@ while 1:
     elif expr == '?':
         show_help()
         continue
-    elif expr == '^[[A':
-        print("hi")
-        continue
     try:
         result = calc.main(expr)
         print(result)
