@@ -26,12 +26,16 @@ class calctest(unittest.TestCase):
     def test_unknown_operator_error(self):
         self.assertRaises(Exception, calc.main, "3}2")
 
-    def test_non_numeric_error(self):
-        self.assertRaises(Exception, calc.main, "a-2")
-        self.assertRaises(Exception, calc.main, "2-a")
-
     def test_new_calc(self):
         self.assertEqual(5, calc.calculate(2, "+", 3))
+        
+    def test_uselastoutput(self):
+        calc.main("3+2")
+        self.assertEqual(8, calc.main("+3"))
+        
+    def test_getlastresult(self):
+        calc.main("2+7")
+        self.assertEqual(9, calc.lastResult)
 
 
 class calcinternaltest(unittest.TestCase):
