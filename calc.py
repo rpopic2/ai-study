@@ -7,6 +7,24 @@ exprs = []
 lastResult = 0
 
 
+def show_help():
+    print("Available operators :")
+    print(symbols)
+
+
+def main_loop(expr):
+    if expr == "exit":
+        exit()
+    elif expr == '?':
+        show_help()
+        return
+    try:
+        result = main(expr)
+        return result
+    except Exception as e:
+        return e.args[1]
+
+
 def define_operator(symbol: str, expr):
     symbols.append(symbol)
     exprs.append(expr)

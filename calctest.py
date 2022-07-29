@@ -59,3 +59,10 @@ class calcplugintest(unittest.TestCase):
     def test_addOp(self):
         calc.define_operator('#', lambda x, y: x*y)
         self.assertEqual(6, calc.main("3 # 2"))
+
+
+
+class basicCalcTest(unittest.TestCase):
+    def test_basicAddition(self):
+        self.assertEqual(5, calc.main_loop("2+3"))
+        
