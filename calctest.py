@@ -1,4 +1,3 @@
-from ctypes import ArgumentError
 import unittest
 import calc
 
