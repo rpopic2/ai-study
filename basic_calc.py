@@ -24,5 +24,5 @@ while 1:
     try:
         result = calc.main(expr)
         print(result)
-    except ArgumentError as e:
-        print(e.message)
+    except Exception as e:
+        print(e.args[1])
